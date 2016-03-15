@@ -10,10 +10,10 @@ This challenge is provided to help assess a candidate's development skills. Ther
 
 ## Tech Stack Requirements
 
-* Database: MongoDB
-* Language: Ruby
-* Framework: Rails or similar
-* Object Document Mapper: Mongoid
+* Database: **MongoDB** (https://www.mongodb.org)
+* Language: **Ruby** (https://www.ruby-lang.org)
+* Framework: **Rails or similar** (http://rubyonrails.org)
+* Object Document Mapper: **Mongoid** (http://mongoid.org)
 
 ## Challenge Instructions
 
