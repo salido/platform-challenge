@@ -28,8 +28,8 @@ Create a set of data models that facilitate menu item pricing determined by a co
   * Current location.
   * Current order type.
   * Current day part.
-* Menu items have one or more prices defined as different "price levels".
-* To determine which of a menu item's "price levels" to apply:
+* Menu items have one or more prices defined as different "price levels" (e.g. a Spicy Reuben might have the following price levels: "Regular" => $10, "Happy Hour" => $6, "Delivery" => $11).
+* To determine which of a menu item's price levels to apply:
   * If the menu item has a price specified for the price level that correlates with the current **location** + **order type** + **day part** combination, use that price level.
   * Else, if the menu item has a price specified for the price level that correlates with the current **location** + **order type** combination, use that price level.
   * Otherwise, the menu item has no price.
