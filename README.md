@@ -4,9 +4,11 @@ This challenge is provided to help assess a candidate's development skills. Ther
 
 ## Submission Instructions
 
-1. Create a GitHub repository called "salido-challenge".
 1. Complete the challenge according to the Challenge Instructions below.
-1. Push your code to GitHub and send a link to your repository to challenge-accepted@salido.com.
+1. Deploy your code on the internets so we can see it in action.
+1. Create a GitHub repository and push your code to it.
+1. Include a README in your repository to explain and document your solution.
+1. Send an email to challenge-accepted@salido.com that includes links to your live solution and to your GitHub repository.
 
 ## Tech Stack Requirements
 
