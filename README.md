@@ -5,61 +5,39 @@ This challenge is provided to help assess a candidate's development skills. Ther
 ## Submission Instructions
 
 1. Complete the challenge according to the Challenge Instructions below.
-1. Deploy your code on the internets so we can see it in action.
-1. Create a GitHub repository and push your code to it.
-1. Include a README in your repository to explain and document your solution.
-1. Send an email to challenge-accepted@salido.com that includes links to your live solution and to your GitHub repository.
-
-## Tech Stack Requirements
-
-* Database: **MongoDB** (https://www.mongodb.org)
-* Language: **Ruby** (https://www.ruby-lang.org)
-* Framework: **Rails or similar** (http://rubyonrails.org)
-* Object Document Mapper: **Mongoid** (http://mongoid.org)
+1. Post your solution in a Github repo. Be sure to include a README.
+1. Send a link to your solution to challenge-accepted@salido.com.
 
 ## Challenge Instructions
 
 ### Objective
-Create a set of data models that facilitate menu item pricing determined by a combination of 3 factors: restaurant location, order type, and time of day.
+Define and explain a set of data models that facilitate menu item pricing determined by a combination of 3 factors: restaurant location, order type, and time of day.
 
 ### Business Requirements
-* Each restaurant brand using the SALIDO platform has multiple locations that may share the same menu items (e.g. Cafe Bangarang's FiDi and SoHo locations both sell a "Spicy Reuben").
-* Restaurant locations utilize various order types (e.g. "Dine In" or "Delivery").
-* For reporting purposes, each location has a concept of "day parts" (e.g. "Lunch" and "Dinner").
-* When calculating a menu item's price, these factors must be taken into account:
-  * Current location.
-  * Current order type.
-  * Current day part.
-* Menu items have one or more prices defined as different "price levels" (e.g. a Spicy Reuben might have the following price levels: "Regular" => $10, "Happy Hour" => $6, "Delivery" => $11).
-* To determine which of a menu item's price levels to apply:
-  * If the menu item has a price specified for the price level that correlates with the current **location** + **order type** + **day part** combination, use that price level.
-  * Else, if the menu item has a price specified for the price level that correlates with the current **location** + **order type** combination, use that price level.
-  * Otherwise, the menu item has no price.
+* Each restaurant **Brand** using the SALIDO platform has multiple **Locations**.
+* Each **Brand** has various **Menu Items** that may be used by any of its **Locations** (e.g. Cafe Bangarang's FiDi and SoHo locations both sell a "Spicy Reuben").
+* Each **Brand** has various **Price Levels** (e.g. "Regular" or "Happy Hour") that may be used by any of its **Locations**.
+* Each **Menu Item** may have a price assigned for each available **Price Level** (e.g. Regular: $4, Happy Hour: $2).
+* Each **Brand** has various **Order Types** (e.g. "Dine In" or "Delivery") that may be used by any of its **Locations**.
+* Each **Location** has multiple **Day Parts** (e.g. "Lunch" and "Dinner").
+* **Price Levels** are configured per **Location**. This is done by specifying an **Order Type** and optional **Day Part** for which it should be applied.
+  * e.g. For the FiDi location:
+    * The "Regular" price level is applied if the order type is "Dine In"
+    * The "Happy Hour" price level is applied if the order type is "Dine In" and the day part is "Dinner"
+    * The "Delivery" price level is applied if the order type is "Delivery"
+* The applicable **Price Level** for any given **Menu Item** is determined at the point of sale by assessing the **Price Level** configurations for the current **Location**:
+  * If the **Menu Item** has a price specified for the **Price Level** that correlates with the current **Order Type** and **Day Part**, use that **Price Level**.
+  * Else, if the **Menu Item** has a price specified for the **Price Level** that correlates with the current **Order Type**, use that **Price Level**.
+  * Otherwise, the **Menu Item** has no currently applicable **Price Level** and cannot be purchased.
+
 
 ### To Do
-1. Create data models for the following (each model should have at least a "name" attribute):
-  * Brands
-  * Locations
-  * Menu Items
-  * Day Parts
-  * Order Types
-  * Price Levels
-  * **Any additional models necessary to support relationships between these models.**
+Produce a solution that fulfills the given business requirements. Explain in technical terms how the data should be modelled, what the relationships are, and the specific application logic required to make it all work. Be sure to elaborate on your reasoning.
 
-2. Define models and relationships as follows:
-  * Locations belong to a Brand.
-  * Menu Items belong to a Brand.
-  * Day Parts belong to a Location.
-  * Order Types belong to a Brand.
-  * Price Levels belong to a Brand.
-  * There are price level associations defined for each Location that tie together an Order Type, a Day Part, and a Price Level.
-  * Each Menu Item may have a price specified for each Price Level in the Brand.
-
-3. Create a very basic web UI that allows a user to do the following:
-  * CRUD a Brand.
-  * CRUD a Location (and define the price level associations).
-  * CRUD a Day Part.
-  * CRUD an Order Type.
-  * CRUD a Price Level.
-  * CRUD a Menu Item (and specify a price for each available price level).
-  * Present a form that allows a user to select Brand, Location, Day Part, Order Type, and Menu Item. Then display the resulting price.
+Your solution may include any or all of the following:
+  * Code snippets
+  * Diagrams
+  * Flow charts
+  * UI mockups
+  * Prose
+  * A fully-functioning program
